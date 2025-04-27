@@ -1,0 +1,470 @@
+@import "tailwindcss";
+
+@plugin "daisyui" {
+  /* themes: light --default; */
+  root: ":root";
+  logs: false;
+}
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme inline {
+  /* ===== COLOR ===== */
+  --color-body-bg: var(--body-bg);
+  --color-box-bg: var(--box-bg);
+
+  --color-primary: var(--primary-color);
+  --color-primary-darker: #012c5a;
+  --color-secondary: var(--secondary-color);
+
+  --color-heading: var(--heading-color);
+  --color-text: var(--text-color);
+  --color-content: var(--content-color);
+
+  --color-input-bg: var(--input-bg);
+  --color-border: var(--border-color);
+
+  --color-hover: var(--hover-bg);
+  --color-active: var(--active-bg);
+
+  /* ===== SPACING ===== */
+  --spacing-header-height: var(--header-height);
+  --spacing-main-height: calc(100vh - var(--header-height));
+  --spacing-aside-width: var(--aside-width);
+  --spacing-8xl: 90rem;
+
+  /* ===== BREAKPOINTS ===== */
+  /* c stands for custom */
+  --breakpoint-csm: 25rem; /* 400px */
+  --breakpoint-cmd: 28.125rem; /* 450px */
+  --breakpoint-clg: 31.25rem; /* 500px */
+  --breakpoint-cxl: 34.375rem; /* 550px */
+  --breakpoint-c2xl: 37.5rem; /* 600px */
+  --breakpoint-3xl: 40.625rem; /* 650px */
+  --breakpoint-4xl: 43.75rem; /* 700px */
+  --breakpoint-5xl: 46.875rem; /* 750px */
+  --breakpoint-6xl: 53.125rem; /* 850px */
+  --breakpoint-7xl: 56.25rem; /* 900px */
+  --breakpoint-8xl: 62rem; /* 992px */
+
+  /* ===== SHADOW ===== */
+  --shadow-form-shadow: 0px 4px 12px 0px rgba(0, 0, 0, 0.13);
+  --shadow-form-dark-shadow: 0px 4px 12px 0px rgba(255, 255, 255, 0.1);
+
+  /* ===== FONT ===== */
+  --font-weight-md: 0.975rem;
+
+  --animate-spin-slow: spin 4s linear infinite;
+  --animate-wiggle: wiggle 1s ease-in-out infinite;
+  @keyframes wiggle {
+    0%,
+    100% {
+      transform: rotate(-6deg);
+    }
+    50% {
+      transform: rotate(6deg);
+    }
+  }
+
+  --animate-tada: tada 1.5s ease infinite;
+  @keyframes tada {
+    0% {
+      transform: scaleX(1);
+      color: red;
+    }
+    10% {
+      transform: scale3d(0.9, 0.9, 0.9) rotate(-3deg);
+      color: var(--color-heading);
+    }
+    20% {
+      transform: scale3d(0.9, 0.9, 0.9) rotate(-3deg);
+      color: red;
+    }
+    30% {
+      transform: scale3d(1.1, 1.1, 1.1) rotate(3deg);
+      color: var(--color-heading);
+    }
+    40% {
+      transform: scale3d(1.1, 1.1, 1.1) rotate(-3deg);
+      color: red;
+    }
+    50% {
+      transform: scale3d(1.1, 1.1, 1.1) rotate(3deg);
+      color: var(--color-heading);
+    }
+    60% {
+      transform: scale3d(1.1, 1.1, 1.1) rotate(-3deg);
+      color: red;
+    }
+    70% {
+      transform: scale3d(1.1, 1.1, 1.1) rotate(3deg);
+      color: var(--color-heading);
+    }
+    80% {
+      transform: scale3d(1.1, 1.1, 1.1) rotate(-3deg);
+      color: red;
+    }
+    90% {
+      transform: scale3d(1.1, 1.1, 1.1) rotate(3deg);
+      color: var(--color-heading);
+    }
+    100% {
+      transform: scaleX(1);
+      color: red;
+    }
+  }
+
+  --animate-scrolling-text-x: scrolling-text-x 10s linear infinite;
+  @keyframes scrolling-text-x {
+    0%,
+    20%,
+    40% {
+      transform: translateX(0);
+    }
+    80%,
+    100% {
+      transform: translateX(-100%);
+    }
+  }
+}
+
+/*
+  The default border color has changed to `currentColor` in Tailwind CSS v4,
+  so we've added these compatibility styles to make sure everything still
+  looks the same as it did with Tailwind CSS v3.
+
+  If we ever want to remove these styles, we need to add an explicit border
+  color utility to any element that depends on these defaults.
+*/
+@layer base {
+  *,
+  ::after,
+  ::before,
+  ::backdrop,
+  ::file-selector-button {
+    border-color: var(--color-gray-200, currentColor);
+  }
+}
+
+@layer utilities {
+  /*  Custom scrollbar styles */
+  /* 
+    Tailwind changes the scrollbar-color property of everything on your page.
+    Adding this to remove the tailwind styles 
+*/
+  *,
+  *:hover {
+    scrollbar-color: auto;
+  }
+}
+
+@utility container {
+  @apply mx-auto px-4 sm:px-8;
+}
+
+@utility flex-between {
+  @apply flex items-center justify-between;
+}
+@utility flex-center {
+  @apply flex items-center justify-center;
+}
+@utility login-input {
+  @apply caret-primary dark:bg-primary bg-white text-[#303030];
+}
+@utility input-field {
+  @apply bg-input-bg text-text caret-primary dark:caret-white;
+}
+@utility primary-btn {
+  @apply h-12 border focus-within:border-blue-500;
+}
+@utility navbar-icon {
+  @apply flex-center text-text h-8 w-8 rounded-full text-2xl;
+}
+
+@utility status-badge {
+  @apply rounded-md px-2 py-1 text-center text-sm whitespace-nowrap;
+}
+@utility green-status {
+  @apply status-badge bg-green-300 text-green-700;
+}
+@utility blue-status {
+  @apply status-badge bg-blue-300 text-blue-700;
+}
+@utility yellow-status {
+  @apply status-badge bg-yellow-200 text-yellow-700;
+}
+@utility orange-status {
+  @apply status-badge bg-orange-300 text-orange-700;
+}
+@utility red-status {
+  @apply status-badge bg-red-300 text-red-700;
+}
+@utility icon-wraper {
+  @apply rounded-xl p-1.5 text-xl text-white transition-colors duration-300;
+}
+@utility edit-icon {
+  @apply bg-blue-400 hover:bg-blue-800;
+}
+@utility delete-icon {
+  @apply bg-red-400 hover:bg-red-800;
+}
+@utility time-line {
+  @apply hover:before:border-primary hover:after:bg-primary relative gap-5 ps-6 transition-all duration-200 before:absolute before:top-3 before:right-1.5 before:h-full before:w-0 before:translate-x-1/2 before:border-s-2 before:border-dashed before:content-[''] after:absolute after:top-1 after:right-1.5 after:size-4 after:translate-x-1/2 after:rounded-full after:border-4 after:content-[''];
+}
+@utility select-header {
+  @apply flex-between dark:border-primary h-[30px] cursor-pointer rounded-md border border-[#d8d8d8] px-4 py-3 text-gray-400 dark:text-white;
+}
+@utility select-body {
+  @apply dark:border-primary absolute top-[150%] z-10 w-full cursor-pointer overflow-y-scroll rounded-md border-[#d8d8d8] text-gray-400 transition-[max-height] duration-500 dark:text-white;
+}
+
+@utility bg-sales-gradient {
+  background-image: linear-gradient(90deg, #ff9a9e, #fad0c4);
+}
+
+@utility bg-booking-gradient {
+  background-image: linear-gradient(90deg, #64b3f6, #0072ff);
+}
+
+@utility bg-ratings-gradient {
+  background-image: linear-gradient(90deg, #f6d365, #fda085);
+}
+
+@utility bg-users-gradient {
+  background-image: linear-gradient(90deg, #c3cfe2, #dee2e6);
+}
+
+@utility bg-sales-gradient {
+  background-image: linear-gradient(90deg, #ff9a9e, #fad0c4);
+}
+
+@layer base {
+  /* =============================== Main =============================== */
+  :root {
+    /* ===== COLOR ===== */
+    --body-bg: #f3f2f7;
+    --box-bg: #fdfdfd;
+
+    --primary-color: #0157b4;
+    --secondary-color: #00d6e9;
+
+    --heading-color: #403e57;
+    --text-color: #5e5d72;
+    --content-color: #48454b;
+
+    --input-bg: #eceaf3;
+    --border-color: #d1d1d1;
+
+    --hover-bg: #f1f1f1;
+    --active-bg: #ebf6ff;
+
+    /* ===== SPACE ===== */
+    --header-height: 5rem;
+    --aside-width: 16rem;
+  }
+  .dark {
+    /* ===== COLOR ===== */
+    --body-bg: #17161e;
+    --box-bg: #222222;
+
+    --primary-color: #0f5aff;
+    --secondary-color: #76cad4;
+
+    --heading-color: #e4e4e4;
+    --text-color: #b4b4b4;
+    --content-color: #c0bdc3;
+
+    --input-bg: #17161e;
+    --border-color: #31436a;
+
+    --hover-bg: #253557;
+    --active-bg: #2881e31a;
+  }
+  html,
+  body {
+    background-color: var(--body-bg);
+    font-family: "Cairo", sans-serif;
+    scroll-behavior: smooth;
+  }
+  /* =============================== Heading =============================== */
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    color: var(--heading-color);
+  }
+
+  /* =============================== Input & Select & textarea =============================== */
+  input,
+  select,
+  textarea {
+    outline: none;
+
+    @variant dark {
+      &::placeholder {
+        color: var(--heading-color);
+      }
+    }
+  }
+  html[dir="rtl"] {
+    select {
+      background-position: left 12px center !important;
+    }
+  }
+  select {
+    padding-inline-end: 2.125rem;
+    cursor: pointer;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background-image: url("/src/assets/icons/down-arrow.png");
+    background-blend-mode: exclusion;
+    background-repeat: no-repeat;
+    background-position: right 12px center;
+    background-size: 15px;
+  }
+
+  button {
+    cursor: pointer;
+  }
+  /* =============================== Input number =============================== */
+  /* Hide arrows/spinners for number input */
+  input[type="number"] {
+    appearance: textfield !important;
+    -moz-appearance: textfield !important;
+  }
+  input[type="number"]::-webkit-inner-spin-button,
+  input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+  }
+
+  /* =============================== Table =============================== */
+  table {
+    width: 100%;
+    border-spacing: 0 10px;
+    border-collapse: separate;
+    text-align: center;
+  }
+  table th,
+  table td {
+    padding: 0.75rem 1rem;
+    vertical-align: middle;
+  }
+  table thead tr {
+    background: linear-gradient(
+      270deg,
+      var(--color-primary) 0%,
+      var(--color-secondary) 70%
+    );
+    color: #fafafa;
+  }
+  table thead tr th {
+    font-size: 0.9rem;
+    font-weight: bold;
+  }
+
+  table tbody tr {
+    background-color: var(--box-bg);
+    color: var(--heading-color);
+  }
+  /* table tbody tr:hover {
+    background-color: #04a9f508;
+  } */
+  table tbody tr td {
+    font-size: 13px;
+  }
+
+  /* =============================== My-Classes =============================== */
+  .header-sticky {
+    -webkit-backdrop-filter: blur(5px);
+    backdrop-filter: blur(5px);
+    background-color: rgba(var(--lightRGB), 90%);
+  }
+}
+
+/* =============================== SCROLL BAR =============================== */
+::-webkit-scrollbar {
+  width: 0.75rem;
+  height: 0.5rem;
+}
+
+::-webkit-scrollbar-track {
+  /* background: transparent; */
+  background: #f1f1f1;
+  border-radius: 0.6rem;
+}
+
+::-webkit-scrollbar-thumb {
+  /* background: transparent; */
+  background: #888;
+  border-radius: 10px;
+  width: 12px;
+}
+
+aside::-webkit-scrollbar,
+.navbar-scroll::-webkit-scrollbar {
+  width: 0.4rem;
+}
+aside::-webkit-scrollbar-track,
+.navbar-scroll::-webkit-scrollbar-track {
+  background: transparent;
+}
+aside::-webkit-scrollbar-thumb,
+.navbar-scroll::-webkit-scrollbar-thumb {
+  background: transparent;
+}
+aside:hover::-webkit-scrollbar-thumb,
+.navbar-scroll:hover::-webkit-scrollbar-thumb {
+  background: #0157b4;
+  border-radius: 10px;
+  width: 12px;
+}
+
+form::-webkit-scrollbar {
+  width: 0.2rem;
+}
+ul::-webkit-scrollbar,
+li::-webkit-scrollbar {
+  width: 0.3rem;
+}
+.modal-box::-webkit-scrollbar {
+  width: 0.4rem;
+}
+
+/* =============================== recharts =============================== */
+.recharts-surface > path {
+  fill: #ffffff70 !important;
+}
+
+/* =============================== sweetalert =============================== */
+.swal-modal {
+  background-color: var(--box-bg);
+  border-radius: 2rem;
+}
+.dark .swal-title {
+  color: white !important;
+}
+.dark .swal-text {
+  color: white !important;
+}
+.swal-button:focus {
+  box-shadow: none !important;
+}
+.swal-button.swal-button--cancel {
+  background-color: #d33;
+  color: white;
+}
+.swal-button.swal-button--cancel:hover {
+  background-color: #dd3333aa;
+}
+.swal-button.swal-button--confirm {
+  background-color: #3085d6;
+}
+.swal-footer {
+  display: flex;
+  place-content: center center;
+}
