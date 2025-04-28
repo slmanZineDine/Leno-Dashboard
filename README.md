@@ -52,8 +52,6 @@ Here are the key pages available in the dashboard:
    cd Leno-Dashboard
    ```
 
-````
-
 2. Install dependencies:
 
    ```bash
@@ -94,4 +92,7 @@ Explore and manage organizational data with ease using these features!
 ## License 📝
 
 This project is open source and available under the [MIT License](LICENSE).
-````
+
+```
+
+```
