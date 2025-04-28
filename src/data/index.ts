@@ -920,20 +920,20 @@ export const ORDERS: TOrder[] = [
 export const NOTIFICATIONS = [
   {
     id: 1,
-    title: "New Booking",
-    body: "You have a new booking request",
-    created_at: "2024-01-01",
+    title: "New User",
+    body: "You have a new user registered.",
+    created_at: "2025-04-20",
   },
   {
     id: 2,
-    title: "New Booking",
-    body: "You have a new booking request",
-    created_at: "2024-01-01",
+    title: "New Complaint",
+    body: "You have a complaint.",
+    created_at: "2025-03-18",
   },
   {
     id: 3,
-    title: "New Booking",
-    body: "You have a new booking request",
+    title: "New Order",
+    body: "You have a new order request",
     created_at: "2024-01-01",
   },
 ];

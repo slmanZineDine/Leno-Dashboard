@@ -18,16 +18,16 @@ const LanguageSwitcher = () => {
   };
 
   return (
-    <div className="flex-center gap-4">
+    <div className="flex-center text-heading gap-4">
       <button
-        className="text-heading font-bold hover:underline"
+        className="font-bold hover:underline"
         onClick={() => changeLanguage(Languages.ENGLISH)}
       >
         English
       </button>
       -
       <button
-        className="text-heading font-bold hover:underline"
+        className="font-bold hover:underline"
         onClick={() => changeLanguage(Languages.ARABIC)}
       >
         عربي

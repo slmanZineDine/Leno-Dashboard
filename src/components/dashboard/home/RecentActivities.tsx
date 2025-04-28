@@ -20,12 +20,12 @@ const RecentActivities = () => {
         <TimeLine
           title="Title"
           time={"03:15 PM"}
-          text="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quam adipisci, explicabo atque assumenda."
+          text={t("common.defaultText")}
         />
         <TimeLine
           title="Title"
           time={"03:15 PM"}
-          text="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quam adipisci, explicabo atque assumenda."
+          text={t("common.defaultText")}
         />
       </div>
     </div>

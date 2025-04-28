@@ -32,7 +32,19 @@
       "centimeters": "cm",
       "grams": "grams"
     },
-    "resetFilters": "Reset Filters"
+    "resetFilters": "Reset Filters",
+    "time": {
+      "now": "now",
+      "minute": "minute",
+      "minutes": "minutes",
+      "hour": "hour",
+      "hours": "hours",
+      "day": "day",
+      "days": "days",
+      "week": "week",
+      "weeks": "weeks",
+      "ago": "ago"
+    }
   },
   "pages": {
     "defaultTitle": "Untitled Page",

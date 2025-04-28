@@ -25,7 +25,7 @@ const TimeLine = ({
           {time}
         </time>
       </div>
-      <p className="text-content mt-2">{text}</p>
+      <p className="text-content mt-2 pe-1">{text}</p>
       {address && (
         <address className="text-content text-md mt-auto">{address}</address>
       )}

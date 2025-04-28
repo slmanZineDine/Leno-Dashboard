@@ -13,7 +13,7 @@ Leno Dashboard is a modern and versatile web application for managing and visual
 - **Modern UI** 🎨: Built with the latest version of React (v19) and Tailwind CSS (v4) for a sleek and responsive design.
 - **Light and Dark Themes** 🌗: Seamlessly switch between light and dark modes.
 
-### Pages 📋
+## Pages 📋
 
 Here are the key pages available in the dashboard:
 
